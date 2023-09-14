@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tugas Pemrograman Web - Layout</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <!--Font Styling-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body{
+            z-index: 1;
+            /* padding-bottom: 20px; */
+        }
+
+        .nav{
+            background-color: hsl(250, 24%, 9%);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            color: white;
+            font-weight: bold;
+            padding-left: 10px;
+            padding: 10px 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-align{
+            display: flex;
+        }
+
+        .icon{
+            background-image: url(./src/railway.png);
+            width: 35px;
+            height: 35px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .nav-head{
+            font-weight: 700;
+            padding-left: 5px;
+            transition: all 1s;
+        }
+
+        .nav-head:hover{
+            color: grey;
+        }
+
+        .jump-to{
+            margin-left: 31.5%;
+            display: flex;
+            gap: 15px;
+        }
+
+        .jump-to a{
+            color: white;
+            text-decoration: none;
+            transition: all 1s;
+        }
+
+        .about-us{
+            width: 100%;
+            height: 50vh;
+            background-color: white;
+            background-image: url(./src/mountain.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-us h1{
+            color: black;
+            text-align: center;
+            padding-top: 20px;
+            font-size: 35px;
+        }
+
+        .section{
+            width: 100%;
+            height: 47vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            /*justify-content: center;*/
+            align-items: center;
+        }
+
+        .s2{
+            height: 700px;
+        }
+
+        .section-news{
+            width: 100%;
+            height: fit-content;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 3% 8%;
+        }
+
+        .headline{
+            font-weight: 600;
+            font-size: 30px;
+            min-width: 900px;
+        }
+
+        .headline + p{
+            min-width: 800px;
+            text-align: justify;
+        }
+
+        .head-1{
+            font-size: clamp(22px,2.5vw,24px);
+            color: black;
+            font-weight: lighter;
+            padding-top: 25px;
+        }
+
+        .head-2{
+            font-size: clamp(22px,2.5vw,24px);
+            color: black;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+
+        .head-3{
+            font-size: 18px;
+            text-align: center;
+            padding: 15px 150px;
+        }
+
+        .icon-about{
+            margin-top: 50px;
+            background-image: url(./src/logo-dark.png);
+            width: 45px;
+            height: 45px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .jump-to a:hover{
+            color: grey;
+        }
+
+        .news-div{
+            width: 100%;
+            height: 50vh;
+            background-color: #F7F7F7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .news-imgs{
+            margin-top: 50px;
+            width: 300px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            filter: grayscale(100%);
+            transition: 1s;
+        }
+
+        .news-imgs:hover{
+            filter: none;
+            scale: 1.1;
+            border-radius: 5px;
+        }
+
+        .nofilter{
+            /* margin-top: 50px; */
+            width: 300px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .n1{
+            background-image: url(./src/n1.jpg);
+        }
+
+        .default{
+            filter: none;
+        }
+
+        .n2{
+            background-image: url(./src/n2.jpeg);
+        }
+
+        .n3{
+            background-image: url(./src/n3.png);
+            background-position: 40%;
+        }
+
+        .n4{
+            background-image: url(./src/n4.jpeg);
+            background-position: 30%;
+        }
+
+        footer{
+            text-align: center;
+            background-color: black;
+            padding: 5px 5px;
+            color: white;
+
+        }
+
+    </style>
+</head>
+<body style="z-index: 1;">
+    <!--Navigation Bar-->
+    <div class="nav" style="z-index: 2;">
+        <div class="icon-align">
+            <a href="#">
+                <div class="icon"></div>
+            </a>
+        </div>
+        <p class="nav-head" draggable="true">Railway News</p>
+        <div class="jump-to">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">News</a>
+            <a href="#">Contacts</a>
+        </div>
+    </div>
+
+    <!--Header About-->
+    <div class="about-us">
+        <h1>Your Daily Window to the World.</h1>
+    </div>
+
+    <!--About-->
+    <div class="section s1" style="margin-bottom: 50px;">
+        <div class="icon-about"></div>
+        <h1 class="head-1">This is,</h1>
+        <h2 class="head-2">The News.</h2>
+        <hr style="width:15%;margin-top: 5px;">
+
+        <p class="head-3"> Your daily source for the latest news and updates 
+            from around the world. We are committed to delivering timely and 
+            accurate information on a wide range of topics, including politics, 
+            technology, health, entertainment, and more. </p>
+            
+        <p class="head-3">Our dedicated team of journalists and editors works tirelessly to keep you 
+            informed and engaged with insightful articles, breaking news, and in-depth analysis. 
+            Whether you're looking for the top headlines or in-depth reporting, you can count on us to be your 
+            trusted news source. providing you with the knowledge you need to stay informed in today's fast-paced world.</p>
+    </div>
+
+    <!--News-->
+    <div class="section s2" style="background-color: #F7F7F7;">
+        <div class="icon-about"></div>
+        <h1 class="head-1">Our Latest,</h1>
+        <h2 class="head-2">Daily News.</h2>
+        <hr style="width:15%;margin-top: 5px;">
+        <div class="news-div">
+            <a href="#news-1"><div class="news-imgs n1"></div></a>
+            <a href="#news-2"><div class="news-imgs n2"></div></a>
+            <a href="#news-3"><div class="news-imgs n3"></div></a>
+            <a href="#news-4"><div class="news-imgs n4"></div></a>
+        </div>
+    </div>
+    
+    <div class="section-news" id="news-1">
+        <div class="nofilter n1"></div>
+        <div style="max-width: 600px; align-self: flex-start;">
+            <h1 class="headline">Koalisi Anies Tunjuk Mantan Jaksa Agung Jadi Dewan Pengarah Tim Hukum</h1>
+            <p style="padding-top: 10px;">Jakarta, CNN Indonesia -- Koalisi Perubahan pengusung pasangan Anies Baswedan dan Muhaimin Iskandar (AMIN) menunjuk mantan Jaksa 
+                Agung Muhammad Prasetyo sebagai dewan pengarah tim hukum di Pilpres 2024.
+                <br><br>
+                Sekjen Partai NasDem Hermawi Taslim mengatakan mantan Jampidsus Edwin Pamimpin Situmorang juga termasuk dewan pengarah tim hukum.
+                
+                "Ada beberapa nama tapi kalau itu sudah konfirmasi menjadi dewan pengarah tim hukum kita," 
+                <br><br>
+                kata Hermawi usai rapat di kantor DPP PKB, Rabu malam (13/9).
+            
+                Sejauh ini, Hermawi mengklaim Koalisi Perubahan telah menerima pengajuan dari sekitar 1000 advokat yang ingin menjadi bagian dari tim hukum Anies-Muhaimin
+                <br><br>
+                Mereka didominasi kelompok Cipayung yang terdiri dari sejumlah organisasi mahasiswa, seperti HMI, PMII, PMKRI, hingga GMNI.
+                
+                "Jadi kita sudah dialog dengan banyak teman-teman, yang 1000-an tadi itu sebagian besar saya ulangi sebagian besar mantan aktivis kelompok Cipayung," kata Hermawi.
+                </p>
+        </div>
+        
+    </div>
+
+    <div class="section-news" id="news-2" style="background-color: #F7F7F7;;">
+        <div class="nofilter n2"></div>
+        <div style="max-width: 600px; align-self: flex-start;">
+            <h1 class="headline">Koalisi Anies Tunjuk Mantan Jaksa Agung Jadi Dewan Pengarah Tim Hukum</h1>
+            <p style="padding-top: 10px;">Jakarta, CNN Indonesia -- Koalisi Perubahan pengusung pasangan Anies Baswedan dan Muhaimin Iskandar (AMIN) menunjuk mantan Jaksa 
+                Agung Muhammad Prasetyo sebagai dewan pengarah tim hukum di Pilpres 2024.
+                <br><br>
+                Sekjen Partai NasDem Hermawi Taslim mengatakan mantan Jampidsus Edwin Pamimpin Situmorang juga termasuk dewan pengarah tim hukum.
+                
+                "Ada beberapa nama tapi kalau itu sudah konfirmasi menjadi dewan pengarah tim hukum kita," 
+                <br><br>
+                kata Hermawi usai rapat di kantor DPP PKB, Rabu malam (13/9).
+            
+                Sejauh ini, Hermawi mengklaim Koalisi Perubahan telah menerima pengajuan dari sekitar 1000 advokat yang ingin menjadi bagian dari tim hukum Anies-Muhaimin
+                <br><br>
+                Mereka didominasi kelompok Cipayung yang terdiri dari sejumlah organisasi mahasiswa, seperti HMI, PMII, PMKRI, hingga GMNI.
+                
+                "Jadi kita sudah dialog dengan banyak teman-teman, yang 1000-an tadi itu sebagian besar saya ulangi sebagian besar mantan aktivis kelompok Cipayung," kata Hermawi.
+                </p>
+        </div>
+        
+    </div>
+
+    <div class="section-news" id="news-3">
+        <div class="nofilter n3"></div>
+        <div style="max-width: 600px; align-self: flex-start;">
+            <h1 class="headline">Koalisi Anies Tunjuk Mantan Jaksa Agung Jadi Dewan Pengarah Tim Hukum</h1>
+            <p style="padding-top: 10px;">Jakarta, CNN Indonesia -- Koalisi Perubahan pengusung pasangan Anies Baswedan dan Muhaimin Iskandar (AMIN) menunjuk mantan Jaksa 
+                Agung Muhammad Prasetyo sebagai dewan pengarah tim hukum di Pilpres 2024.
+                <br><br>
+                Sekjen Partai NasDem Hermawi Taslim mengatakan mantan Jampidsus Edwin Pamimpin Situmorang juga termasuk dewan pengarah tim hukum.
+                
+                "Ada beberapa nama tapi kalau itu sudah konfirmasi menjadi dewan pengarah tim hukum kita," 
+                <br><br>
+                kata Hermawi usai rapat di kantor DPP PKB, Rabu malam (13/9).
+            
+                Sejauh ini, Hermawi mengklaim Koalisi Perubahan telah menerima pengajuan dari sekitar 1000 advokat yang ingin menjadi bagian dari tim hukum Anies-Muhaimin
+                <br><br>
+                Mereka didominasi kelompok Cipayung yang terdiri dari sejumlah organisasi mahasiswa, seperti HMI, PMII, PMKRI, hingga GMNI.
+                
+                "Jadi kita sudah dialog dengan banyak teman-teman, yang 1000-an tadi itu sebagian besar saya ulangi sebagian besar mantan aktivis kelompok Cipayung," kata Hermawi.
+                </p>
+        </div>
+        
+    </div>
+
+    <div class="section-news" id="news-4">
+        <div class="nofilter n4"></div>
+        <div style="max-width: 600px; align-self: flex-start;">
+            <h1 class="headline">Koalisi Anies Tunjuk Mantan Jaksa Agung Jadi Dewan Pengarah Tim Hukum</h1>
+            <p style="padding-top: 10px;">Jakarta, CNN Indonesia -- Koalisi Perubahan pengusung pasangan Anies Baswedan dan Muhaimin Iskandar (AMIN) menunjuk mantan Jaksa 
+                Agung Muhammad Prasetyo sebagai dewan pengarah tim hukum di Pilpres 2024.
+                <br><br>
+                Sekjen Partai NasDem Hermawi Taslim mengatakan mantan Jampidsus Edwin Pamimpin Situmorang juga termasuk dewan pengarah tim hukum.
+                
+                "Ada beberapa nama tapi kalau itu sudah konfirmasi menjadi dewan pengarah tim hukum kita," 
+                <br><br>
+                kata Hermawi usai rapat di kantor DPP PKB, Rabu malam (13/9).
+            
+                Sejauh ini, Hermawi mengklaim Koalisi Perubahan telah menerima pengajuan dari sekitar 1000 advokat yang ingin menjadi bagian dari tim hukum Anies-Muhaimin
+                <br><br>
+                Mereka didominasi kelompok Cipayung yang terdiri dari sejumlah organisasi mahasiswa, seperti HMI, PMII, PMKRI, hingga GMNI.
+                
+                "Jadi kita sudah dialog dengan banyak teman-teman, yang 1000-an tadi itu sebagian besar saya ulangi sebagian besar mantan aktivis kelompok Cipayung," kata Hermawi.
+                </p>
+        </div>
+        
+    </div>
+
+    <footer>
+        Ahda Filza Ghaffaru - 5025211144
+    </footer>
+</body>
+</html>
